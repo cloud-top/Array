@@ -46,7 +46,41 @@ const find = [5, 12, 8, 130, 44];
 const findIndex = [5, 12, 8, 130, 44];
 // console.log(findIndex.findIndex((val) => val > 10));
 
-//flat() 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。(数组扁平化)
+//flat() 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。(数组扁平化,不会改版原数组)
 const flat = [0, 1, 2, [3, 4]];
 const flat2 = flat.flat(Infinity); // flat(传展开的层数，不传默认为1，传Infinity则展开所有)
 // console.log(flat, flat2);
+
+// flatMap() 方法首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。它与 map 连着深度值为1的 flat 几乎相同，但 flatMap 通常在合并成一种方法的效率稍微高一些。
+const flatMap = [1, 2, 3, 4];
+const flatMap2 = flatMap.map((it) => [it * 2]);
+const flatMap3 = flatMap.flatMap((it) => [it * 2]); // flatMap 方法与 map 方法和深度depth为1的 flat 几乎相同.
+// console.log(flatMap, flatMap2, flatMap3);
+
+// forEach() 方法对数组的每个元素执行一次给定的函数。(改变原数组)
+const forEach = ["a", "b", "c"];
+// forEach.forEach((it) => console.log(it));
+
+// Array.from() 方法对一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
+// console.log(Array.from("foo"));
+// console.log(Array.from([1, 2, 3], (x) => x + x));
+
+// 该includes()方法确定数组是否在其条目中包含某个值，返回true或 false酌情。
+const includes = [1, 2, 3];
+// console.log(includes.includes(1), includes.includes(4));
+
+// indexOf()方法返回可以在数组中找到给定元素的第一个索引，如果不存在，则返回 -1。
+const indexOf = ["ant", "bison", "camel", "duck", "bison"];
+// console.log(
+//   indexOf.indexOf("bison"),
+//   indexOf.indexOf("bison", 2),
+//   indexOf.indexOf("giraffe")
+// );
+
+// map()方法创建一个新数组，其中填充了对调用数组中的每个元素调用提供的函数的结果。(不会改变原数组)
+const map = [1, 4, 9, 16];
+const map1 = map.map((x) => x * 2);
+// console.log(map, map1);
+
+// Array.of()方法从可变数量的参数创建一个新Array 实例，而不考虑参数的数量或类型。
+console.log(Array.of(7), Array(7));
